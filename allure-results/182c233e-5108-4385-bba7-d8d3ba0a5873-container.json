@@ -1,0 +1,1 @@
+{"uuid":"182c233e-5108-4385-bba7-d8d3ba0a5873","name":"tests.LoginTest.teardown","children":["9f8d8505-0977-4a4c-b7d6-1e39750a13c9"],"description":"","befores":[],"afters":[{"name":"teardown","status":"broken","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1753079543070,"stop":1753079543070}],"start":1753079543069,"stop":1753079543070}
