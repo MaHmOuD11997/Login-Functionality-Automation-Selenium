@@ -18,7 +18,7 @@ public class LoginTest {
 
     @BeforeClass
     public void setupClass() {
-        // تحديد مسار الـ ChromeDriver (أو ضيفه للـ PATH)
+        
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win64\\chromedriver.exe");
     }
 
@@ -27,7 +27,7 @@ public class LoginTest {
         driver = new ChromeDriver();
         driver.manage().window();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.get("https://practicetestautomation.com/practice-test-login/");  // عدّل الرابط حسب الحاجة
+        driver.get("https://practicetestautomation.com/practice-test-login/");  
         loginPage = new LoginPage(driver);
     }
 
@@ -36,7 +36,7 @@ public class LoginTest {
     public void testValidLogin() {
         loginPage.login("student", "Password123");
 
-        // انتظار حتى يتغير الـ URL ويحتوي على "dashboard"
+        
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         boolean urlContainsSuccess = wait.until(ExpectedConditions.urlContains("logged-in-successfully"));
         Assert.assertTrue(urlContainsSuccess, "User should be redirected to success page");
@@ -47,7 +47,7 @@ public class LoginTest {
     @Description("Test Description: Invalid login test with wrong password")
     public void testInvalidPassword() {
         loginPage.login("student", "WrongPass");
-        System.out.println("🔍 الرسالة: " + loginPage.getErrorMessage());
+        System.out.println(loginPage.getErrorMessage());
         Assert.assertTrue(loginPage.getErrorMessage().contains("Your password is invalid!"));
     }
 
@@ -55,8 +55,8 @@ public class LoginTest {
     @Description("Test Description: Login attempt with empty email and password")
     public void testEmptyFields() {
         loginPage.login("", "");
-        System.out.println("🔍 الرسالة: " + loginPage.getErrorMessage());
-        Assert.assertTrue(loginPage.getErrorMessage().contains("Your username is invalid!"));  // عدّل حسب الرسالة الحقيقية
+        System.out.println( loginPage.getErrorMessage());
+        Assert.assertTrue(loginPage.getErrorMessage().contains("Your username is invalid!"));  
     }
 
     @AfterMethod
